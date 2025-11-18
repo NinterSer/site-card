@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Не просто Сергей</title>
+	<link rel="stylesheet" href='/resource/css/main.css'>
+</head>
+<body>
+	<header class='head'>
+		<h2 class='head'>Программист</h2>
+		<h1 class='head'>Кравцов Сергей</h1>
+		<div class='head'>
+			<a href="https://t.me/MrVeryCool" target="_blank" rel="noopener noreferrer" class='head'>
+  				<img src="/resource/assets/telegram.png" alt="Открыть Telegram" class='head'>
+			</a>
+			<a href="https://hh.ru/resume/e517385fff0f153c5e0039ed1f414c336d4a52" target="_blank" rel="noopener noreferrer" class='head'>
+  				<img src="/resource/assets/hh.png" alt="Открыть Telegram" class='head'>
+			</a>
+		</div>
+	</header>
+
+	<div id="body">
+
+	</div>
+
+	<script>
+		let ORIENTATION = 0;
+		const PARENT = document.getElementById('body');
+
+		class Info {
+			constructor(text, image, orientation=ORIENTATION, parent=PARENT){
+				this.text = text;
+				this.image = image;
+				this.orientation = orientation;
+				this.parent = parent;
+
+				this.createElement();
+			}
+
+			createElement(){
+				if(this.HTML !== undefined)this.HTML.remove();
+
+				const section = document.createElement('div');
+				section.setAttribute('class','section');
+				this.parent.appendChild(section);
+				this.HTML = section;
+
+				const text = document.createElement('p');
+				text.setAttribute('class','section');
+				text.innerHTML = this.text;
+
+				const image = document.createElement('img');
+				image.setAttribute('class','section');
+				image.setAttribute('src',this.image);
+
+				switch(this.orientation){
+				case 0:
+					section.appendChild(text);
+					section.appendChild(image);
+					break;
+				case 1:
+					section.appendChild(image);
+					section.appendChild(text);
+					break;
+				}
+				ORIENTATION = this.orientation*-1+1;
+			}
+		}
+
+		const infoMe = new Info(`Добрый день, меня зовут Сергей, мне <span class="section">25 лет</span> и я программист. Мой опыт работы в сфере IT - <span class="section">от 3х лет</span>, работал <span class="section">программистом JavaScript, Системным админстратором, Техническим специалистом в поддержке.</span>`, '/resource/assets/HelloWorld.jpg');
+
+		const infoMe1 = new Info(`Стремлюсь к решению задач оптимальным способом, обладаю навыками анализа систем и разработки индивидуальных решений для заказчиков. Писал одностраничные сайты для взаимодействия с API заказчика (Vue.js). Создавал простые HTTP-сервера на Node.js (Express) и Python. Создавал нейронные сети для анализа инвестиций и принятия решений о закупке/продажи ценной бумаги, работал с Tinkoff API.`, '/resource/assets/Tinkoff.jpg');
+
+		const infoMe2 = new Info(`<span class="section">Автоматизация бизнес-процессов:</span>
+		<br>- Разработал систему автоматизации работы с Google Sheets, сократив время обработки данных на 75%
+		<br>- Внедрил скрипты для автоматического сбора и анализа данных
+		<br><span class="section">Серверная автоматизация:</span>
+		<br>- Создал систему автоматизации серверов с использованием Python
+		<br>- Оптимизировал рабочие процессы, повысив эффективность на 50%
+		`, '/resource/assets/Auto.jpg');
+
+		const infoJS = new Info(`<span class="section">JavaScript</span> ES6+ (продвинутый уровень):
+		<br>- ООП: классы, геттеры/сеттеры, приватные поля
+		<br>- Асинхронное программирование (Promise, async/await)
+		<br>- DOM-манипуляции
+		<br>- Google Apps Script
+		<br>- HTML5/CSS3 (продвинутый уровень):
+		<br>- Адаптивная вёрстка
+		<br>- Современные методологии вёрстки`,"/resource/assets/JS.jpg");
+
+		const infoVueJS = new Info(`<span class="section">Vue.js 3</span> (средний уровень):
+		<br>- Компонентный подход
+		<br>- Работа с состоянием
+		<br>- Работа с внешним API`,"/resource/assets/VueJS.jpg");
+
+		const infoNodeJS = new Info(`<span class="section">Node.js</span> (средний уровень):
+		<br>- Разработка HTTP-серверов с использованием Express модуля и без;
+		<br>- Шаблонизатор EJS`,"/resource/assets/NodeJS.png");
+
+		const infoPython = new Info(`<span class="section">Python</span> (продвинутый уровень):
+		<br>- Разработка HTTP-серверов
+		<br>- API-интеграция (Tinkoff API)
+		<br>- Работа с базами данных (PostgreSQL)
+		<br>- Pandas для обработки данных`,"/resource/assets/Python.jpg");
+
+		const infoJS1 = new Info(`<span class="section">Machine Learning</span> (средний уровень):
+		<br>- TensorFlow
+		<br>- Keras
+		<br>- Scikit-learn
+		<br>- Визуализация данных (Matplotlib, Seaborn)`,"/resource/assets/ML.jpg");
+		
+	</script>
+</body>
+</html>
